@@ -17,7 +17,7 @@ lazy val library = project.in(file("library")).settings(
 lazy val support = project.in(file("ijext")).dependsOn(library).settings(
   name := "library-test-ijext",
   ideaExternalPlugins += IdeaPlugin.Id("Scala", "org.intellij.scala", None),
-  scalacOptions += "-Ylog-classpath"
+  ideaInternalPlugins += "java"
 ).aggregate(library).enablePlugins(SbtIdeaPlugin)
 
 lazy val testProject = project.in(file("test-project"))
